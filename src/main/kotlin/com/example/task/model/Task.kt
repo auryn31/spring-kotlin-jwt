@@ -1,3 +1,13 @@
 package com.example.task.model
 
-data class Task(val id: Long, val description: String, val done: Boolean = false)
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+
+@Entity
+data class Task(
+        val description: String = "",
+        val done: Boolean = false,
+        @Id @GeneratedValue(strategy = GenerationType.AUTO)
+        val id: Long = -1)
